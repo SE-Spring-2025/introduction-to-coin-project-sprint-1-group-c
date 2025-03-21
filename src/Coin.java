@@ -12,14 +12,19 @@ public class Coin {
     public boolean ridgedEdge;
     public String matallurgy;
 
-    public  Coin()
+    public Coin()
     {}    
     
     public Coin(double value)
-    {}
+    {
+        this.value = value;
+    }
 
     public Coin(double value, int year)
-    {}
+    {
+        this.value = value;
+        this.manufactureYear = year;
+    }
 
     public String toString()
     {}
