@@ -1,32 +1,78 @@
 public class Coin {
-    public double value; 
-    public String commonName; 
-    public String frontMotto;
-    public int manufactureYear;
-    public String frontImage;
-    public String backImage;
-    public String backMotto;
-    public String frontLabel;
-    public String backLabel;
-    public String valueDescription;
-    public boolean ridgedEdge;
-    public String matallurgy;
+    private double value;
+    private String commonName;
+    private String frontMotto;
+    private int manufactureYear;
+    private String frontImage;
+    private String backImage;
+    private String backMotto;
+    private String frontLabel;
+    private String backLabel;
+    private String valueDescription;
+    private boolean ridgedEdge;
+    private String matallurgy;
 
-    public Coin()
-    {}    
-    
-    public Coin(double value)
-    {
+    public Coin() {
+    }
+
+    public Coin(double value) {
         this.value = value;
     }
 
-    public Coin(double value, int year)
-    {
+    public Coin(double value, int year) {
         this.value = value;
         this.manufactureYear = year;
     }
 
-    public String toString()
-    {}
-    
+    public double getValue() {
+        return value;
+    }
+
+    public String getCommonName() {
+        return commonName;
+    }
+
+    public String getFrontMotto() {
+        return frontMotto;
+    }
+
+    public int getManufactureYear() {
+        return manufactureYear;
+    }
+
+    public String getFrontImage() {
+        return frontImage;
+    }
+
+    public String getBackImage() {
+        return backImage;
+    }
+
+    public String getBackMotto() {
+        return backMotto;
+    }
+
+    public String getFrontLabel() {
+        return frontLabel;
+    }
+
+    public String getBackLabel() {
+        return backLabel;
+    }
+
+    public String getValueDescription() {
+        return valueDescription;
+    }
+
+    public boolean isRidgedEdge() {
+        return ridgedEdge;
+    }
+
+    public String getMatallurgy() {
+        return matallurgy;
+    }
+
+    public String toString() {
+        return null;
+    }
 }
