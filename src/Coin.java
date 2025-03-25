@@ -75,38 +75,65 @@ public class Coin {
             case PENNY:
                 // Penny
                 this.commonName = "Penny";
-                this.frontMotto = "IN GOD WE TRUST";
                 this.frontImage = "Abraham Lincoln";
-                this.frontLabel = "LIBERTY";
-                this.backMotto = "E PLURIBUS UNUM";
                 this.backImage = "Union Shield";
-                this.backLabel = "UNITED STATES OF AMERICA";
                 this.valueDescription = "ONE CENT";
                 this.ridgedEdge = false;
+                this.metallurgy = "Zinc";
                 break;
             case NICKEL:
                 // Nickel
+                this.commonName = "Nickel";
+                this.frontImage = "Thomas Jefferson";
+                this.backImage = "Monticello";
+                this.valueDescription = "FIVE CENTS";
                 this.ridgedEdge = false;
+                this.metallurgy = "Copper and nickel";
                 break;
             case DIME:
                 // Dime
+                this.commonName = "Dime";
+                this.frontImage = "Franklin D. Roosevelt";
+                this.backImage = "Torch and branches";
+                this.valueDescription = "ONE DIME";
                 this.ridgedEdge = true;
+                this.metallurgy = "Copper and nickel";
                 break;
             case QUARTER:
                 // Quarter
+                this.commonName = "Quarter";
+                this.frontImage = "George Washington";
+                this.backImage = "Eagle";
+                this.valueDescription = "QUARTER DOLLAR";
                 this.ridgedEdge = true;
+                this.metallurgy = "Copper and nickel";
                 break;
             case HALF_DOLLAR:
-                // Half-dollar
+                // Half Dollar
+                this.commonName = "Half Dollar";
+                this.frontImage = "John F. Kennedy";
+                this.backImage = "Presidential Seal";
+                this.valueDescription = "HALF DOLLAR";
                 this.ridgedEdge = true;
+                this.metallurgy = "Copper and nickel";
                 break;
             case DOLLAR:
                 // Dollar
-                this.ridgedEdge = true;
+                this.commonName = "Dollar Coin";
+                this.frontImage = "Sacagawea";
+                this.backImage = "Eagle in flight";
+                this.valueDescription = "ONE DOLLAR";
+                this.ridgedEdge = false;
+                this.metallurgy = "Copper";
                 break;
             case UNKNOWN_COIN:
                 break;
         }
+        
+        this.frontMotto = "IN GOD WE TRUST";
+        this.frontLabel = "LIBERTY";
+        this.backMotto = "E PLURIBUS UNUM";
+        this.backLabel = "UNITED STATES OF AMERICA";
 
         this.value = coinType.getValue();
         this.manufactureYear = year;
