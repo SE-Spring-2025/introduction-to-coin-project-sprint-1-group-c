@@ -12,7 +12,7 @@ public class Coin {
     private String backLabel;
     private String valueDescription;
     private boolean ridgedEdge;
-    private String matallurgy;
+    private String metallurgy;
 
     public enum CoinType {
         PENNY,
@@ -156,8 +156,8 @@ public class Coin {
         return ridgedEdge;
     }
 
-    public String getMatallurgy() {
-        return matallurgy;
+    public String getMetallurgy() {
+        return metallurgy;
     }
 
     public String toString() {
