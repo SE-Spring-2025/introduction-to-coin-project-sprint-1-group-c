@@ -2,8 +2,9 @@ import java.text.DecimalFormat;
 import java.time.Year;
 
 public abstract class Coin {
-    public String commonName;
     public double value;
+    public int manufactureYear;
+    public String commonName;
     public String frontMotto = "IN GOD WE TRUST";
     public String backMotto = "E PLURIBUS UNUM";
     public String frontLabel = "LIBERTY";
@@ -13,19 +14,16 @@ public abstract class Coin {
     public String valueDescription;
     public boolean ridgedEdge;
     public String metallurgy;
-    public int manufactureYear;
 
-    public Coin(double value, int year) {
+    public Coin(double value, int manufactureYear, String commonName, String frontImage, String backImage, String valueDescription, boolean ridgedEdge, String metallurgy) {
         this.value = value;
-        this.manufactureYear = year;    
-    }    
-
-    public Coin(double value){
-        this(value, Year.now().getValue());
-    }
-
-    public Coin(){
-        this(0.0);
+        this.manufactureYear = manufactureYear;
+        this.commonName = commonName;
+        this.frontImage = frontImage;
+        this.backImage = backImage;
+        this.valueDescription = valueDescription;
+        this.ridgedEdge = ridgedEdge;
+        this.metallurgy = metallurgy;
     }
 
     public double getValue() { return value; }
