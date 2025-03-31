@@ -3,6 +3,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import java.util.Calendar;
+import java.time.Year;
 
 public class CoinTest{
     private static int currYear;
@@ -17,7 +19,7 @@ public class CoinTest{
 	// Basically just make sure they don't blow up
 	// parameterless constructor
 	try {
-	    MockCoin c = new Coin();
+	    Coin c = new MockCoin();
 	}
 	catch (Exception e) {
 	    fail("Coin() constructor caused exception: "+e.getMessage());
@@ -203,4 +205,11 @@ private boolean testNickel() {
 		// Test passes if it reaches here
 		return true;
 	}
+}
+
+class MockCoin extends Coin {
+	public MockCoin() {
+		super(0.24, 1788, "Mock", "frontImage", "backImage", "twenty-four cents", false,
+		"metallurgy");
+		}
 }

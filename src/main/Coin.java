@@ -39,8 +39,8 @@ public abstract class Coin {
     public String toString() {
         DecimalFormat df = new DecimalFormat("0.00");
         return "[" + commonName + "," + df.format(value) + "," + manufactureYear +
-               ", '" + frontMotto + "', '" + backMotto + "', '" + frontImage + "', '" + backImage + "', '" +
-               frontLabel + "', '" + backLabel + "', '" + valueDescription + "', " +
-               (ridgedEdge ? "ridges" : "smooth") + ", '" + metallurgy + "']";
+               ",'" + frontMotto + "','" + backMotto + "','" + frontImage + "','" + backImage + "','" +
+               frontLabel + "','" + backLabel + "','" + valueDescription + "'," +
+               (ridgedEdge ? "ridges" : "smooth") + ",'" + metallurgy + "']";
     }
 }

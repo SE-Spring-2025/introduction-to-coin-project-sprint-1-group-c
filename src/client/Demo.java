@@ -22,8 +22,6 @@ public class Demo {
     private static void fixedDemo() {
 		System.out.println();
 		System.out.println();
-		System.out.println("Making a Coin()");
-		System.out.println("Result:" + new Coin());
 		System.out.println("Making a Penny()");
 		System.out.println("Result:" + new Penny());
 		System.out.println("Making a Nickel()");
@@ -36,11 +34,7 @@ public class Demo {
 		System.out.println("Result:" + new HalfDollar());
 		System.out.println("Making a Dollar()");
 		System.out.println("Result:" + new Dollar());
-		System.out.println("Making a Coin(1.00, 1991)");
-		System.out.println("Result:" + new Coin(1.00,1991));
-		System.out.println("Making a Coin(99.99)");
-		System.out.println("Result:" + new Coin(99.99));
-    }
+	}
 
     private static void printMenu() {
 		System.out.println();
@@ -102,7 +96,6 @@ public class Demo {
 		    		c = new Penny();
 		    		break;
 	        	case 'X':
-		    		c = new Coin();
 		    		return;
 	        	default:
 		    		System.out.println("Invalid entry, try again.");
