@@ -1,4 +1,5 @@
 import java.text.DecimalFormat;
+import java.time.Year;
 
 public abstract class Coin {
     public String commonName;
@@ -16,7 +17,15 @@ public abstract class Coin {
 
     public Coin(double value, int year) {
         this.value = value;
-        this.manufactureYear = year;
+        this.manufactureYear = year;    
+    }    
+
+    public Coin(double value){
+        this(value, Year.now().getValue());
+    }
+
+    public Coin(){
+        this(0.0);
     }
 
     public double getValue() { return value; }
