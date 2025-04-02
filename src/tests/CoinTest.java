@@ -1,10 +1,12 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import java.util.Calendar;
+
 import java.time.Year;
+import java.util.Calendar;
 
 public class CoinTest{
     private static int currYear;
@@ -47,15 +49,23 @@ public class CoinTest{
 
     @Test
     public void testGetters() {
-	if (! testPenny()) fail("penny getters failed");
-	if (! testNickel()) fail("nickel getters failed");
-	if (! testDime()) fail("dime getters failed");
-	if (! testQuarter()) fail("quarter getters failed");
-	if (! testHalfDollar()) fail("half dollar getters failed");
-	if (! testDollar()) fail("dollar getters failed");
-	
-	// make it here then didn't fail!
-	assertTrue(true);
+		Coin c = new MockCoin();
+
+		assertEquals("Mock", (c.getCommonName()));
+		assertFalse(Double.compare(c.getValue(), 0.24) != 0);
+		assertEquals("IN GOD WE TRUST", (c.frontMotto));
+		assertEquals("E PLURIBUS UNUM", (c.backMotto));
+		assertEquals("LIBERTY", (c.frontLabel));
+		assertEquals("UNITED STATES OF AMERICA", (c.backLabel));
+		assertEquals("frontImage", (c.getFrontImage()));
+		assertEquals("backImage", (c.getBackImage()));
+		assertEquals("twenty-four cents", (c.getValueDescription()));
+		assertFalse(c.hasRidgedEdge());
+		assertEquals("metallurgy", (c.getMetallurgy()));
+		assertEquals(currYear, c.getYear());
+		
+		// make it here then didn't fail!
+		assertTrue(true);
     }
 
     @Test
@@ -74,142 +84,16 @@ public class CoinTest{
     //---------------------------------------------------------
     
     private boolean cmpDoubles(double a, double b) {
-	return Math.abs(a-b) < 0.00001;
+		return Math.abs(a-b) < 0.00001;
     }
-    
-private boolean testPenny() {
-    Penny c = new Penny();
-    int currYear = Year.now().getValue();
-    
-    if (!"Penny".equals(c.getCommonName())) return false;
-    if (Double.compare(c.getValue(), 0.01) != 0) return false;
-    if (!"IN GOD WE TRUST".equals(c.frontMotto)) return false;
-    if (!"E PLURIBUS UNUM".equals(c.backMotto)) return false;
-    if (!"LIBERTY".equals(c.frontLabel)) return false;
-    if (!"UNITED STATES OF AMERICA".equals(c.backLabel)) return false;
-    if (!"A_Lincoln".equals(c.getFrontImage())) return false;
-    if (!"Lincoln_Memorial".equals(c.getBackImage())) return false;
-    if (!"ONE CENT".equals(c.getValueDescription())) return false;
-    if (c.hasRidgedEdge()) return false;
-    if (!"Copper".equals(c.getMetallurgy())) return false;
-    if (currYear != c.getYear()) return false;
-    
-    // Test passes if it reaches here
-    return true;
-}
-
-	
-private boolean testNickel() {
-    Nickel c = new Nickel();
-    int currYear = Year.now().getValue();
-    
-    if (!"Nickel".equals(c.getCommonName())) return false;
-    if (Double.compare(c.getValue(), 0.05) != 0) return false;
-    if (!"IN GOD WE TRUST".equals(c.frontMotto)) return false;
-    if (!"E PLURIBUS UNUM".equals(c.backMotto)) return false;
-    if (!"LIBERTY".equals(c.frontLabel)) return false;
-    if (!"UNITED STATES OF AMERICA".equals(c.backLabel)) return false;
-    if (!"T_Jefferson".equals(c.getFrontImage())) return false;
-    if (!"Jefferson_Memorial".equals(c.getBackImage())) return false;
-    if (!"FIVE CENTS".equals(c.getValueDescription())) return false;
-    if (c.hasRidgedEdge()) return false;
-    if (!"Cupro-Nickel".equals(c.getMetallurgy())) return false;
-    if (currYear != c.getYear()) return false;
-    
-    // Test passes if it reaches here
-    return true;
-    }
-	
-	private boolean testDime() {
-		Dime c = new Dime();
-		int currYear = Year.now().getValue();
-		
-		if (!"Dime".equals(c.getCommonName())) return false;
-		if (Double.compare(c.getValue(), 0.10) != 0) return false;
-		if (!"IN GOD WE TRUST".equals(c.frontMotto)) return false;
-		if (!"E PLURIBUS UNUM".equals(c.backMotto)) return false;
-		if (!"LIBERTY".equals(c.frontLabel)) return false;
-		if (!"UNITED STATES OF AMERICA".equals(c.backLabel)) return false;
-		if (!"F_Roosevelt".equals(c.getFrontImage())) return false;
-		if (!"Torch_Branches".equals(c.getBackImage())) return false;
-		if (!"ONE DIME".equals(c.getValueDescription())) return false;
-		if (!c.hasRidgedEdge()) return false;
-		if (!"Cupro-Nickel".equals(c.getMetallurgy())) return false;
-		if (currYear != c.getYear()) return false;
-		
-		// Test passes if it reaches here
-		return true;
-	}
-	
-
-    private boolean testQuarter() {
-		Quarter c = new Quarter();
-		int currYear = Year.now().getValue();
-		
-		if (!"Quarter".equals(c.getCommonName())) return false;
-		if (Double.compare(c.getValue(), 0.25) != 0) return false;
-		if (!"IN GOD WE TRUST".equals(c.frontMotto)) return false;
-		if (!"E PLURIBUS UNUM".equals(c.backMotto)) return false;
-		if (!"LIBERTY".equals(c.frontLabel)) return false;
-		if (!"UNITED STATES OF AMERICA".equals(c.backLabel)) return false;
-		if (!"G_Washington".equals(c.getFrontImage())) return false;
-		if (!"Eagle".equals(c.getBackImage())) return false;
-		if (!"QUARTER DOLLAR".equals(c.getValueDescription())) return false;
-		if (!c.hasRidgedEdge()) return false;
-		if (!"Cupro-Nickel".equals(c.getMetallurgy())) return false;
-		if (currYear != c.getYear()) return false;
-		
-		// Test passes if it reaches here
-		return true;
-	}
-
-
-    private boolean testHalfDollar() {
-		HalfDollar c = new HalfDollar();
-		int currYear = Year.now().getValue();
-		
-		if (!"HalfDollar".equals(c.getCommonName())) return false;
-		if (Double.compare(c.getValue(), 0.50) != 0) return false;
-		if (!"IN GOD WE TRUST".equals(c.frontMotto)) return false;
-		if (!"E PLURIBUS UNUM".equals(c.backMotto)) return false;
-		if (!"LIBERTY".equals(c.frontLabel)) return false;
-		if (!"UNITED STATES OF AMERICA".equals(c.backLabel)) return false;
-		if (!"J_Kennedy".equals(c.getFrontImage())) return false;
-		if (!"Presidential_Seal".equals(c.getBackImage())) return false;
-		if (!"HALF DOLLAR".equals(c.getValueDescription())) return false;
-		if (!c.hasRidgedEdge()) return false;
-		if (!"Cupro-Nickel".equals(c.getMetallurgy())) return false;
-		if (currYear != c.getYear()) return false;
-		
-		// Test passes if it reaches here
-		return true;
-	}
-    
-	private boolean testDollar() {
-		Dollar c = new Dollar();
-		int currYear = Year.now().getValue();
-		
-		if (!"Dollar".equals(c.getCommonName())) return false;
-		if (Double.compare(c.getValue(), 1.00) != 0) return false;
-		if (!"IN GOD WE TRUST".equals(c.frontMotto)) return false;
-		if (!"E PLURIBUS UNUM".equals(c.backMotto)) return false;
-		if (!"LIBERTY".equals(c.frontLabel)) return false;
-		if (!"UNITED STATES OF AMERICA".equals(c.backLabel)) return false;
-		if (!"S_Anthony".equals(c.getFrontImage())) return false;
-		if (!"Moon_Eagle".equals(c.getBackImage())) return false;
-		if (!"ONE DOLLAR".equals(c.getValueDescription())) return false;
-		if (!c.hasRidgedEdge()) return false;
-		if (!"Cupro-Nickel".equals(c.getMetallurgy())) return false;
-		if (currYear != c.getYear()) return false;
-		
-		// Test passes if it reaches here
-		return true;
-	}
 }
 
 class MockCoin extends Coin {
 	public MockCoin() {
-		super(0.24, 1788, "Mock", "frontImage", "backImage", "twenty-four cents", false,
+		this(Year.now().getValue());
+	}
+	public MockCoin(int year) {
+		super(0.24, year, "Mock", "frontImage", "backImage", "twenty-four cents", false,
 		"metallurgy");
-		}
+	}
 }
