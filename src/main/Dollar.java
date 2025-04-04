@@ -6,6 +6,7 @@ class Dollar extends Coin {
     }
 
     public Dollar(int year) {
-        super(1.00, year, "Dollar", "S_Anthony", "Moon_Eagle", "ONE DOLLAR", true, "Cupro-Nickel");
+        Metallurgy metal = new CuproNickel();
+        super(1.00, year, "Dollar", "S_Anthony", "Moon_Eagle", "ONE DOLLAR", true, metal);
     }
 }
