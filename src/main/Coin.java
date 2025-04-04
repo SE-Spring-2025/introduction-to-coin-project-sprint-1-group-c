@@ -13,9 +13,10 @@ public abstract class Coin {
     public String backImage;
     public String valueDescription;
     public boolean ridgedEdge;
+    protected Metallurgy metal;
     public String metallurgy;
 
-    public Coin(double value, int manufactureYear, String commonName, String frontImage, String backImage, String valueDescription, boolean ridgedEdge, String metallurgy) {
+    public Coin(double value, int manufactureYear, String commonName, String frontImage, String backImage, String valueDescription, boolean ridgedEdge, Metallurgy metal) {
         this.value = value;
         this.manufactureYear = manufactureYear;
         this.commonName = commonName;
@@ -23,7 +24,8 @@ public abstract class Coin {
         this.backImage = backImage;
         this.valueDescription = valueDescription;
         this.ridgedEdge = ridgedEdge;
-        this.metallurgy = metallurgy;
+        this.metal = metal;
+        //this.metallurgy = metallurgy;
     }
 
     public double getValue() { return value; }
@@ -33,6 +35,7 @@ public abstract class Coin {
     public String getBackImage() { return backImage; }
     public String getValueDescription() { return valueDescription; }
     public boolean hasRidgedEdge() { return ridgedEdge; }
+    public void setMetallurgy()  { metallurgy = metal.smelt(); }
     public String getMetallurgy() { return metallurgy; }
     
     @Override
