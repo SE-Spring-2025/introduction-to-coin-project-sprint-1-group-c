@@ -14,10 +14,10 @@ public class DimeTest {
 		
 		assertEquals("Dime", (c.getCommonName()));
 		assertFalse(Double.compare(c.getValue(), 0.10) != 0);
-		assertEquals("IN GOD WE TRUST", (c.frontMotto));
-		assertEquals("E PLURIBUS UNUM", (c.backMotto));
-		assertEquals("LIBERTY", (c.frontLabel));
-		assertEquals("UNITED STATES OF AMERICA", (c.backLabel));
+		assertEquals("IN GOD WE TRUST", (c.getFrontMotto()));
+		assertEquals("E PLURIBUS UNUM", (c.getBackMotto()));
+		assertEquals("LIBERTY", (c.getFrontLabel()));
+		assertEquals("UNITED STATES OF AMERICA", (c.getBackLabel()));
 		assertEquals("F_Roosevelt", (c.getFrontImage()));
 		assertEquals("Torch_Branches", (c.getBackImage()));
 		assertEquals("ONE DIME", (c.getValueDescription()));

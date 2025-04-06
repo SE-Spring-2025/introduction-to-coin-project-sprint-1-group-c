@@ -14,10 +14,10 @@ public class DollarTest {
 		
 		assertEquals("Dollar", (c.getCommonName()));
 		assertFalse(Double.compare(c.getValue(), 1.00) != 0);
-		assertEquals("IN GOD WE TRUST", (c.frontMotto));
-		assertEquals("E PLURIBUS UNUM", (c.backMotto));
-		assertEquals("LIBERTY", (c.frontLabel));
-		assertEquals("UNITED STATES OF AMERICA", (c.backLabel));
+		assertEquals("IN GOD WE TRUST", (c.getFrontMotto()));
+		assertEquals("E PLURIBUS UNUM", (c.getBackMotto()));
+		assertEquals("LIBERTY", (c.getFrontLabel()));
+		assertEquals("UNITED STATES OF AMERICA", (c.getBackLabel()));
 		assertEquals("S_Anthony", (c.getFrontImage()));
 		assertEquals("Moon_Eagle", (c.getBackImage()));
 		assertEquals("ONE DOLLAR", (c.getValueDescription()));

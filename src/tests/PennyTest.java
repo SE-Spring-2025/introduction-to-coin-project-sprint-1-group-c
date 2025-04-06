@@ -14,10 +14,10 @@ public class PennyTest {
         
         assertEquals("Penny", (c.getCommonName()));
         assertEquals(Double.compare(c.getValue(), 0.01) != 0, false);
-        assertEquals("IN GOD WE TRUST", (c.frontMotto));
-        assertEquals("E PLURIBUS UNUM", (c.backMotto));
-        assertEquals("LIBERTY", (c.frontLabel));
-        assertEquals("UNITED STATES OF AMERICA", (c.backLabel));
+        assertEquals("IN GOD WE TRUST", (c.getFrontMotto()));
+        assertEquals("E PLURIBUS UNUM", (c.getBackMotto()));
+        assertEquals("LIBERTY", (c.getFrontLabel()));
+        assertEquals("UNITED STATES OF AMERICA", (c.getBackLabel()));
         assertEquals("A_Lincoln", (c.getFrontImage()));
         assertEquals("Lincoln_Memorial", (c.getBackImage()));
         assertEquals("ONE CENT", (c.getValueDescription()));

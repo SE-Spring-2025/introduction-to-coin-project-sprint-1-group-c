@@ -14,10 +14,10 @@ public class QuarterTest {
 		
 		assertEquals("Quarter", (c.getCommonName()));
 		assertFalse(Double.compare(c.getValue(), 0.25) != 0);
-		assertEquals("IN GOD WE TRUST", (c.frontMotto));
-		assertEquals("E PLURIBUS UNUM", (c.backMotto));
-		assertEquals("LIBERTY", (c.frontLabel));
-		assertEquals("UNITED STATES OF AMERICA", (c.backLabel));
+		assertEquals("IN GOD WE TRUST", (c.getFrontMotto()));
+		assertEquals("E PLURIBUS UNUM", (c.getBackMotto()));
+		assertEquals("LIBERTY", (c.getFrontLabel()));
+		assertEquals("UNITED STATES OF AMERICA", (c.getBackLabel()));
 		assertEquals("G_Washington", (c.getFrontImage()));
 		assertEquals("Eagle", (c.getBackImage()));
 		assertEquals("QUARTER DOLLAR", (c.getValueDescription()));
