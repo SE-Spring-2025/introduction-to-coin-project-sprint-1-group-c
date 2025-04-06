@@ -43,4 +43,8 @@ public abstract class Coin {
                frontLabel + "','" + backLabel + "','" + valueDescription + "'," +
                (ridgedEdge ? "ridges" : "smooth") + ",'" + smelter.smelt() + "']";
     }
+
+    public String smelt() {
+        return this.smelter.smelt();
+    }
 }

@@ -61,7 +61,7 @@ public class CoinTest{
 		assertEquals("backImage", (c.getBackImage()));
 		assertEquals("twenty-four cents", (c.getValueDescription()));
 		assertFalse(c.hasRidgedEdge());
-		assertEquals("metallurgy", c.getSmelter().smelt());
+		assertEquals("metallurgy", c.smelt());
 		assertEquals(currYear, c.getYear());
 		
 		// make it here then didn't fail!
@@ -91,21 +91,11 @@ public class CoinTest{
 	@Test
 public void testSmelter() {
     Coin dime = new Dime(2021);
-    assertEquals("Cupro-Nickel", dime.getSmelter().smelt());
+    assertEquals("Cupro-Nickel", dime.smelt());
 
-    Coin mock = new MockCoin() {
-        @Override
-        public Metallurgy getSmelter() {
-            return new Metallurgy() {
-                @Override
-                public String smelt() {
-                    return "metallurgy";
-                }
-            };
-        }
-    };
+    Coin mock = new MockCoin();
 
-    assertEquals("metallurgy", mock.getSmelter().smelt());
+    assertEquals("metallurgy", mock.smelt());
 }
 }
 
