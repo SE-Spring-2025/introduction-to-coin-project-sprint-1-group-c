@@ -22,7 +22,7 @@ public class HalfDollarTest {
 		assertEquals("Presidential_Seal", (c.getBackImage()));
 		assertEquals("HALF DOLLAR", (c.getValueDescription()));
 		assertTrue(c.hasRidgedEdge());
-		assertEquals("Cupro-Nickel", (c.getMetallurgy()));
+		assertEquals("Cupro-Nickel", c.getSmelter().smelt());
 		assertEquals(currYear, c.getYear());
 		
 		// Test passes if it reaches here

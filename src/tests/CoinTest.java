@@ -61,7 +61,7 @@ public class CoinTest{
 		assertEquals("backImage", (c.getBackImage()));
 		assertEquals("twenty-four cents", (c.getValueDescription()));
 		assertFalse(c.hasRidgedEdge());
-		assertEquals("metallurgy", (c.getMetallurgy()));
+		assertEquals("metallurgy", c.getSmelter().smelt());
 		assertEquals(currYear, c.getYear());
 		
 		// make it here then didn't fail!
@@ -86,14 +86,41 @@ public class CoinTest{
     private boolean cmpDoubles(double a, double b) {
 		return Math.abs(a-b) < 0.00001;
     }
+
+
+	@Test
+public void testSmelter() {
+    Coin dime = new Dime(2021);
+    assertEquals("Cupro-Nickel", dime.getSmelter().smelt());
+
+    Coin mock = new MockCoin() {
+        @Override
+        public Metallurgy getSmelter() {
+            return new Metallurgy() {
+                @Override
+                public String smelt() {
+                    return "metallurgy";
+                }
+            };
+        }
+    };
+
+    assertEquals("metallurgy", mock.getSmelter().smelt());
+}
 }
 
+
+
 class MockCoin extends Coin {
-	public MockCoin() {
-		this(Year.now().getValue());
-	}
-	public MockCoin(int year) {
-		super(0.24, year, "Mock", "frontImage", "backImage", "twenty-four cents", false,
-		"metallurgy");
-	}
+    public MockCoin() {
+        this(Year.now().getValue());
+    }
+
+    public MockCoin(int year) {
+        super(0.24, year, "Mock", "frontImage", "backImage", "twenty-four cents", false,
+              new Metallurgy() {
+                  @Override
+                  public String smelt() { return "metallurgy"; }
+              });
+    }
 }

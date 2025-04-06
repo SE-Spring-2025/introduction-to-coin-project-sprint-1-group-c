@@ -22,7 +22,7 @@ public class PennyTest {
         assertEquals("Lincoln_Memorial", (c.getBackImage()));
         assertEquals("ONE CENT", (c.getValueDescription()));
         assertFalse(c.hasRidgedEdge());
-        assertEquals("Copper", (c.getMetallurgy()));
+        assertEquals("Copper", c.getSmelter().smelt());
         assertEquals(currYear, c.getYear());
         
         // Test passes if it reaches here
