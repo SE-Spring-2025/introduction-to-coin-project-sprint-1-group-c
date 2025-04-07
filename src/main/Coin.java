@@ -1,5 +1,4 @@
 import java.text.DecimalFormat;
-import java.time.Year;
 
 public abstract class Coin {
     private double value;
