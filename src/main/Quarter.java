@@ -6,6 +6,6 @@ class Quarter extends Coin {
     }
     
     public Quarter(int year) {
-        super(0.25, year, "Quarter", "G_Washington", "Eagle", "QUARTER DOLLAR", true, "Cupro-Nickel");
+        super(0.25, year, "Quarter", "G_Washington", "Eagle", "QUARTER DOLLAR", true, new CuproNickel());
     }
 }

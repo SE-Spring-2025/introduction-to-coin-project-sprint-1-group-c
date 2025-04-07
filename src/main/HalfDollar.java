@@ -6,6 +6,6 @@ class HalfDollar extends Coin {
     }
 
     public HalfDollar(int year) {
-        super(0.50, year, "HalfDollar", "J_Kennedy", "Presidential_Seal", "HALF DOLLAR", true, "Cupro-Nickel");
+        super(0.50, year, "HalfDollar", "J_Kennedy", "Presidential_Seal", "HALF DOLLAR", true, new CuproNickel());
     }
 }

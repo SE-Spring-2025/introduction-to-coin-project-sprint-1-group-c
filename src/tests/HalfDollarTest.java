@@ -14,15 +14,15 @@ public class HalfDollarTest {
 		
 		assertEquals("HalfDollar", (c.getCommonName()));
 		assertFalse(Double.compare(c.getValue(), 0.50) != 0);
-		assertEquals("IN GOD WE TRUST", (c.frontMotto));
-		assertEquals("E PLURIBUS UNUM", (c.backMotto));
-		assertEquals("LIBERTY", (c.frontLabel));
-		assertEquals("UNITED STATES OF AMERICA", (c.backLabel));
+		assertEquals("IN GOD WE TRUST", (c.getFrontMotto()));
+		assertEquals("E PLURIBUS UNUM", (c.getBackMotto()));
+		assertEquals("LIBERTY", (c.getFrontLabel()));
+		assertEquals("UNITED STATES OF AMERICA", (c.getBackLabel()));
 		assertEquals("J_Kennedy", (c.getFrontImage()));
 		assertEquals("Presidential_Seal", (c.getBackImage()));
 		assertEquals("HALF DOLLAR", (c.getValueDescription()));
 		assertTrue(c.hasRidgedEdge());
-		assertEquals("Cupro-Nickel", (c.getMetallurgy()));
+		assertEquals("Cupro-Nickel", c.smelt());
 		assertEquals(currYear, c.getYear());
 		
 		// Test passes if it reaches here

@@ -53,15 +53,15 @@ public class CoinTest{
 
 		assertEquals("Mock", (c.getCommonName()));
 		assertFalse(Double.compare(c.getValue(), 0.24) != 0);
-		assertEquals("IN GOD WE TRUST", (c.frontMotto));
-		assertEquals("E PLURIBUS UNUM", (c.backMotto));
-		assertEquals("LIBERTY", (c.frontLabel));
-		assertEquals("UNITED STATES OF AMERICA", (c.backLabel));
+		assertEquals("IN GOD WE TRUST", (c.getFrontMotto()));
+		assertEquals("E PLURIBUS UNUM", (c.getBackMotto()));
+		assertEquals("LIBERTY", (c.getFrontLabel()));
+		assertEquals("UNITED STATES OF AMERICA", (c.getBackLabel()));
 		assertEquals("frontImage", (c.getFrontImage()));
 		assertEquals("backImage", (c.getBackImage()));
 		assertEquals("twenty-four cents", (c.getValueDescription()));
 		assertFalse(c.hasRidgedEdge());
-		assertEquals("metallurgy", (c.getMetallurgy()));
+		assertEquals("metallurgy", c.smelt());
 		assertEquals(currYear, c.getYear());
 		
 		// make it here then didn't fail!
@@ -86,14 +86,31 @@ public class CoinTest{
     private boolean cmpDoubles(double a, double b) {
 		return Math.abs(a-b) < 0.00001;
     }
+
+
+	@Test
+public void testSmelt() {
+    Coin dime = new Dime(2021);
+    assertEquals("Cupro-Nickel", dime.smelt());
+
+    Coin mock = new MockCoin();
+
+    assertEquals("metallurgy", mock.smelt());
+}
 }
 
+
+
 class MockCoin extends Coin {
-	public MockCoin() {
-		this(Year.now().getValue());
-	}
-	public MockCoin(int year) {
-		super(0.24, year, "Mock", "frontImage", "backImage", "twenty-four cents", false,
-		"metallurgy");
-	}
+    public MockCoin() {
+        this(Year.now().getValue());
+    }
+
+    public MockCoin(int year) {
+        super(0.24, year, "Mock", "frontImage", "backImage", "twenty-four cents", false,
+              new Metallurgy() {
+                  @Override
+                  public String smelt() { return "metallurgy"; }
+              });
+    }
 }

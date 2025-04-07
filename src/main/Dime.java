@@ -6,6 +6,6 @@ class Dime extends Coin {
     }
 
     public Dime(int year) {
-        super(0.10, year, "Dime", "F_Roosevelt", "Torch_Branches", "ONE DIME", true, "Cupro-Nickel");
+        super(0.10, year, "Dime", "F_Roosevelt", "Torch_Branches", "ONE DIME", true, new CuproNickel());
     }
 }
