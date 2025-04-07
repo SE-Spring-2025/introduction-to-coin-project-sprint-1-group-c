@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Demo {
@@ -34,6 +33,9 @@ public class Demo {
 		System.out.println("Result:" + new HalfDollar());
 		System.out.println("Making a Dollar()");
 		System.out.println("Result:" + new Dollar());
+		System.out.println("Making a Penny() with a different metallurgy");
+		Coin penny = new Penny();
+		System.out.println("Result:" + new Coin(penny.getValue(), penny.getYear(), penny.getCommonName(), penny.getFrontImage(), penny.getBackImage(), penny.getValueDescription(), penny.hasRidgedEdge(), new CuproNickel()) {});
 	}
 
     private static void printMenu() {
