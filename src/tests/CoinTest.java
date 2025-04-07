@@ -89,7 +89,7 @@ public class CoinTest{
 
 
 	@Test
-public void testSmelter() {
+public void testSmelt() {
     Coin dime = new Dime(2021);
     assertEquals("Cupro-Nickel", dime.smelt());
 
