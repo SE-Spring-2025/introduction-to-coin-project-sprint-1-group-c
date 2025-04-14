@@ -1,4 +1,6 @@
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Coin {
     private double value;
@@ -14,6 +16,12 @@ public abstract class Coin {
     private boolean ridgedEdge;
     private String metallurgy;
     private Metallurgy smelter;
+
+    protected static CoinCounts coinCounts = new CoinCounts();
+
+    public static CoinCounts getCoinCounts() {
+        return coinCounts;
+    }
 
     public Coin(double value, int manufactureYear, String commonName, String frontImage, String backImage, String valueDescription, boolean ridgedEdge, Metallurgy smelter) {
         this.value = value;
@@ -53,4 +61,38 @@ public abstract class Coin {
     public String smelt() {
         return this.smelter.smelt();
     }
+
+    public static class CoinCounts {
+        private int totalCoins = 0;
+        private int quarterCount = 0;
+        private List<CoinCountsObserver> observers = new ArrayList<>();
+
+        public void registerObserver(CoinCountsObserver observer) {
+            observers.add(observer);
+        }
+
+        private void notifyObservers() {
+            for (CoinCountsObserver observer : observers) {
+                observer.update(totalCoins, quarterCount);
+            }
+        }
+
+        // Called when a non-quarter coin is created.
+        public synchronized void incrementTotal() {
+            totalCoins++;
+            notifyObservers();
+        }
+
+        // Called when a quarter coin is created.
+        // Note: A quarter is still a coin so we increment both counters.
+        public synchronized void incrementQuarter() {
+            quarterCount++;
+            totalCoins++;
+            notifyObservers();
+        }
+        
+        public int getTotalCoins() { return totalCoins; }
+        public int getQuarterCount() { return quarterCount; }
+    }
+  
 }

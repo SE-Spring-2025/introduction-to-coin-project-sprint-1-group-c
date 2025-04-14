@@ -2,7 +2,6 @@ public class TotalCoins implements CoinCountsObserver {
     private int total;
 
     public TotalCoins(Coin.CoinCounts coinCounts) {
-        // Register this observer with the CoinCounts delegate.
         coinCounts.registerObserver(this);
     }
 
