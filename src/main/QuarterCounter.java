@@ -1,8 +1,15 @@
-public class QuarterCounter implements CoinCountsObserver {
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.*;
+
+public class QuarterCounter extends JFrame implements CoinCountsObserver, Runnable {
     private int quarters;
+    private JLabel quarterCountLabel;
+    private static final String LABEL_PREFIX = "Total Quarters: "; 
 
     public QuarterCounter(Coin.CoinCounts coinCounts) {
         coinCounts.registerObserver(this);
+        this.quarters = coinCounts.getQuarterCount();
     }
 
     @Override
@@ -12,6 +19,19 @@ public class QuarterCounter implements CoinCountsObserver {
     }
 
     public void display() {
-        System.out.println("Total Quarters: " + quarters);
+        quarterCountLabel.setText(" " + LABEL_PREFIX + quarters + " ");
+    }
+
+    @Override
+    public void run() {
+        setTitle("Total Quaters");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+
+        quarterCountLabel = new JLabel(" " + LABEL_PREFIX + quarters + " ");
+        add(quarterCountLabel);
+        
+        pack();
+        setVisible(true);
     }
 }
