@@ -80,3 +80,21 @@ Right now, our various concrete coin classes (e.g., Quarter) are passing a const
 We will move the current metallurgy (the constant strings) into their own encapsulations. All of these various metallurgy encapsulations are related to each other by a common interface that we will call Metallurgy. This interface will require a String smelt() method that returns the string constant.
 
 The Coin abstract class currently has a String metallurgy field. We will add a new composition with a Metallurgy delegate named smelter. The Coin class will have a new method ```void smelt()``` that it will call to set the metallurgy field. This smelt() method will relay the request to the smelter Metallurgy delegate.
+
+### 4/9/25
+# Coins Project
+## Sprint 4
+### Sprint Goal
+The goal of the sprint is to add "dashboards" as observers. And, as always, our code meets our corporate requirements: checkstyle, unit testing.
+
+### Domain details
+The Treasury Department undersecretary is very happy with your progress so far! In fact, they want a "dashboard" to see how things are progressing. In particular, they want to see the total
+number of coins being manufactured and separately the number of quarters.
+
+### Implementation details
+We will add a new protected and static composition with CoinCounter to the Coin abstract class. The concrete coin constructors will call methods on this CoinCounter delegate. Our demo class will create a "Total Coins" window employing the observer pattern. We will get the CoinCounter object reference from coin. We will pass that object to "Total Coins" window constructor. This will register with Coin Counter as an observer.
+
+
+### 4/16/25
+# Coins Project
+## Sprint 5
