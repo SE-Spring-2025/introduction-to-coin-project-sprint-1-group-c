@@ -63,6 +63,13 @@ public class Demo {
     }	
 
     private static void runDemo() {
+		TotalCoins totalCoins = new TotalCoins(Coin.getCoinCounts());
+		Thread tcThread = new Thread(totalCoins);
+	    tcThread.start();
+		QuarterCounter quarterCounter = new QuarterCounter(Coin.getCoinCounts());
+		Thread qThread = new Thread(quarterCounter);
+		qThread.start();
+
 		Coin c;
 		while (true) {
 	    	System.out.println();
@@ -72,6 +79,9 @@ public class Demo {
 	    	System.out.print("What coin to make? ");
 	    	String response = keyboard.nextLine();
 	    	response = response.trim();
+			if (response.length() == 0) {
+				response = " ";
+			}
 	    	switch (response.charAt(0)) {
 	        	case 'G':
 		    		System.out.println("Gonna make a dollar coin...");
@@ -98,6 +108,10 @@ public class Demo {
 		    		c = new Penny();
 		    		break;
 	        	case 'X':
+					totalCoins.setVisible(false);
+					totalCoins.dispose();
+					quarterCounter.setVisible(false);
+					quarterCounter.dispose();
 		    		return;
 	        	default:
 		    		System.out.println("Invalid entry, try again.");
