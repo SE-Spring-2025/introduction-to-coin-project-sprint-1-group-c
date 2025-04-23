@@ -9,7 +9,7 @@ import org.junit.Test;
 public class DimeTest {
     @Test
     public void testDime() {
-		Dime c = new Dime();
+		Coin c = new Dime().manufacture();
 		int currYear = Year.now().getValue();
 		
 		assertEquals("Dime", (c.getCommonName()));

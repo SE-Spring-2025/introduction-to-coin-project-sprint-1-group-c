@@ -9,7 +9,7 @@ import org.junit.Test;
 public class DollarTest {
     @Test
     public void testDollar() {
-		Dollar c = new Dollar();
+		Coin c = new Dollar().manufacture();
 		int currYear = Year.now().getValue();
 		
 		assertEquals("Dollar", (c.getCommonName()));

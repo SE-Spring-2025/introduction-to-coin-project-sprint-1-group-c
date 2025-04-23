@@ -9,7 +9,7 @@ import org.junit.Test;
 public class HalfDollarTest {
     @Test
     public void testHalfDollar() {
-		HalfDollar c = new HalfDollar();
+		Coin c = new HalfDollar().manufacture();
 		int currYear = Year.now().getValue();
 		
 		assertEquals("HalfDollar", (c.getCommonName()));

@@ -9,7 +9,7 @@ import org.junit.Test;
 public class PennyTest {
     @Test
     public void testPenny() {
-        Penny c = new Penny();
+        Coin c = new Penny().manufacture();
         int currYear = Year.now().getValue();
         
         assertEquals("Penny", (c.getCommonName()));

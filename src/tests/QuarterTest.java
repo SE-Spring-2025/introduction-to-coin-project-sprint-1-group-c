@@ -9,7 +9,7 @@ import org.junit.Test;
 public class QuarterTest {
     @Test
     public void testQuarter() {
-		Quarter c = new Quarter();
+		Coin c = new Quarter().manufacture();
 		int currYear = Year.now().getValue();
 		
 		assertEquals("Quarter", (c.getCommonName()));
