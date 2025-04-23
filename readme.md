@@ -129,10 +129,10 @@ the coin. With this initial object we then call the manufacture method.
 Inside the manufacture method are method calls to the various process steps. The flip() and buff() methods are common for all coins and so can have default implementations in the Coin class. For now, just have these set a boolean field to true so that we can confirm that the operation was performed. The other methods (imprinting, ridging, etc.) are specific to the type of Coin. So the Coin will require these methods to be abstract and hence implemented in the concrete class (e.g., Dime). 
 
 ### Execution Details
--Added Manufacture method
--Set them to execute each step in order
--Modified coin classes with proper protected methods to be used
--Modified the Demo to create functionality of our new methods
--Created a new test to ensure the Manufacturing works
--Tested all changes and finialied to git with no errors. 
--Ready to Merge
+1. Added Manufacture method
+2. Set them to execute each step in order
+3. Modified coin classes with proper protected methods to be used
+4. Modified the Demo to create functionality of our new methods
+5. Created a new test to ensure the Manufacturing works
+6. Tested all changes and finialied to git with no errors. 
+7. Ready to Merge
