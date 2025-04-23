@@ -3,17 +3,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Coin {
+    protected static final String DEFAULT_FRONT_MOTTO = "IN GOD WE TRUST";
+    protected static final String DEFAULT_BACK_MOTTO = "E PLURIBUS UNUM";
+    protected static final String DEFAULT_FRONT_LABEL = "LIBERTY";
+    protected static final String DEFAULT_BACK_LABEL = "UNITED STATES OF AMERICA";
+    
     private double value;
     private int manufactureYear;
     private String commonName;
-    private String frontMotto        = "IN GOD WE TRUST";
-    private String backMotto         = "E PLURIBUS UNUM";
-    private String frontLabel        = "LIBERTY";
-    private String backLabel         = "UNITED STATES OF AMERICA";
-    private String frontImage;
-    private String backImage;
-    private String valueDescription;
-    private boolean ridgedEdge;
+    protected String frontMotto;
+    protected String backMotto;
+    protected String frontLabel;
+    protected String backLabel;
+    protected String frontImage;
+    protected String backImage;
+    protected String valueDescription;
+    protected boolean ridgedEdge;
     private Metallurgy smelter;
 
     protected static CoinCounts coinCounts = new CoinCounts();
@@ -22,25 +27,15 @@ public abstract class Coin {
         return coinCounts;
     }
 
-    // Flags for manufactiing method 
-    private boolean smelted                = false;
-    private boolean edged                  = false;
-    private boolean frontImageImprinted    = false;
-    private boolean frontDetailsImprinted  = false;
+    // Flags for manufacturing method
     private boolean flipped                = false;
-    private boolean backImageImprinted     = false;
-    private boolean backDetailsImprinted   = false;
     private boolean buffed                 = false;
 
     // Blob only constructor 
-    protected Coin(double value, int manufactureYear, String commonName, String frontImage, String backImage, String valueDescription, boolean ridgedEdge, Metallurgy smelter) {
+    protected Coin(double value, int manufactureYear, String commonName, Metallurgy smelter) {
         this.value            = value;
         this.manufactureYear  = manufactureYear;
         this.commonName       = commonName;
-        this.frontImage       = frontImage;
-        this.backImage        = backImage;
-        this.valueDescription = valueDescription;
-        this.ridgedEdge       = ridgedEdge;
         this.smelter          = smelter;
     }
     
@@ -61,22 +56,18 @@ public abstract class Coin {
     // 1. cure the metal alloy via our strategy 
     protected void smeltStep() {
         smelter.smelt();
-        smelted = true;
     }
 
     // 2. apply ridges if called for 
-    protected void edgeStep() {
-        if (ridgedEdge) edged = true;
-    }
+    protected abstract void edgeStep();
 
     // 3. press the front image 
-    protected void imprintFrontImage() {
-        frontImageImprinted = true;
-    }
+    protected abstract void imprintFrontImage();
 
     // 4. press the front motto, year, and label 
     protected void imprintFrontDetails() {
-        frontDetailsImprinted = true;
+        this.frontMotto = Coin.DEFAULT_FRONT_MOTTO;
+        this.frontLabel = Coin.DEFAULT_FRONT_LABEL;
     }
 
     // 5. flip it over 
@@ -85,14 +76,10 @@ public abstract class Coin {
     }
 
     // 6. press the back image 
-    protected void imprintBackImage() {
-        backImageImprinted = true;
-    }
+    protected abstract void imprintBackImage();
 
     // 7. press the back motto, value, and label 
-    protected void imprintBackDetails() {
-        backDetailsImprinted = true;
-    }
+    protected abstract void imprintBackDetails();
 
     // 8. final polishing 
     protected final void buff() {
@@ -100,13 +87,7 @@ public abstract class Coin {
     }
 
     // testing getters
-    public boolean isSmelted()               { return smelted; }
-    public boolean isEdged()                 { return edged; }
-    public boolean isFrontImageImprinted()   { return frontImageImprinted; }
-    public boolean isFrontDetailsImprinted() { return frontDetailsImprinted; }
     public boolean isFlipped()               { return flipped; }
-    public boolean isBackImageImprinted()    { return backImageImprinted; }
-    public boolean isBackDetailsImprinted()  { return backDetailsImprinted; }
     public boolean isBuffed()                { return buffed; }
 
     

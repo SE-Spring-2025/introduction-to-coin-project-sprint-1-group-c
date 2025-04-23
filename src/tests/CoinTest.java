@@ -49,7 +49,7 @@ public class CoinTest{
 
     @Test
     public void testGetters() {
-		Coin c = new MockCoin();
+		Coin c = new MockCoin().manufacture();
 
 		assertEquals("Mock", (c.getCommonName()));
 		assertFalse(Double.compare(c.getValue(), 0.24) != 0);
@@ -70,7 +70,7 @@ public class CoinTest{
 
     @Test
     public void testToString() {
-	Coin c = new HalfDollar(1999);
+	Coin c = new HalfDollar(1999).manufacture();
 	String expectedOutput =
 	    "[HalfDollar,0.50,1999,'IN GOD WE TRUST','E PLURIBUS UNUM'"
 	    + ",'J_Kennedy','Presidential_Seal','LIBERTY'"
@@ -107,10 +107,32 @@ class MockCoin extends Coin {
     }
 
     public MockCoin(int year) {
-        super(0.24, year, "Mock", "frontImage", "backImage", "twenty-four cents", false,
+        super(0.24, year, "Mock",
               new Metallurgy() {
                   @Override
                   public String smelt() { return "metallurgy"; }
               });
+    }
+
+	@Override
+    protected void edgeStep() {
+        this.ridgedEdge = false;
+    }
+
+    @Override
+    protected void imprintFrontImage() {
+        this.frontImage = "frontImage";
+    }
+
+    @Override
+    protected void imprintBackImage() {
+        this.backImage = "backImage";
+    }
+
+    @Override
+    protected void imprintBackDetails() {
+        this.backMotto = Coin.DEFAULT_BACK_MOTTO;
+        this.backLabel = Coin.DEFAULT_BACK_LABEL;
+        this.valueDescription = "twenty-four cents";
     }
 }

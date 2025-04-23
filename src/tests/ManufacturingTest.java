@@ -7,24 +7,12 @@ public class ManufacturingTest {
     void testDimeManufacturingPipeline() {
         Dime d = new Dime(2021);
         
-        assertFalse(d.isSmelted());
-        assertFalse(d.isEdged());
-        assertFalse(d.isFrontImageImprinted());
-        assertFalse(d.isFrontDetailsImprinted());
         assertFalse(d.isFlipped());
-        assertFalse(d.isBackImageImprinted());
-        assertFalse(d.isBackDetailsImprinted());
         assertFalse(d.isBuffed());
         
         d.manufacture();
 
-        assertTrue(d.isSmelted());
-        assertTrue(d.isEdged());                 
-        assertTrue(d.isFrontImageImprinted());
-        assertTrue(d.isFrontDetailsImprinted());
         assertTrue(d.isFlipped());
-        assertTrue(d.isBackImageImprinted());
-        assertTrue(d.isBackDetailsImprinted());
         assertTrue(d.isBuffed());
     }
 
@@ -32,14 +20,8 @@ public class ManufacturingTest {
     void testPennyManufacturingPipeline() {
         Penny p = new Penny(2021);
         p.manufacture();
-
-        assertTrue(p.isSmelted());
-        assertFalse(p.isEdged());
-        assertTrue(p.isFrontImageImprinted());
-        assertTrue(p.isFrontDetailsImprinted());
+        
         assertTrue(p.isFlipped());
-        assertTrue(p.isBackImageImprinted());
-        assertTrue(p.isBackDetailsImprinted());
         assertTrue(p.isBuffed());
     }
 }

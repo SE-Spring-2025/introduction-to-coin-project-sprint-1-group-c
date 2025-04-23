@@ -8,7 +8,7 @@ import org.junit.Test;
 public class NickelTest {
     @Test
     public void testNickel() {
-        Nickel c = new Nickel();
+        Coin c = new Nickel().manufacture();
         int currYear = Year.now().getValue();
         
         assertEquals("Nickel", (c.getCommonName()));

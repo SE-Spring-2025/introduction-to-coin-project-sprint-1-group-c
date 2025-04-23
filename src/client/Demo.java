@@ -38,20 +38,6 @@ public class Demo {
 
         System.out.println("Making a Dollar()");
         System.out.println("Result:" + new Dollar().manufacture());
-
-        System.out.println("Making a Penny() with a different metallurgy");
-        Coin penny = new Penny();
-        Coin custom = new Coin(
-            penny.getValue(),
-            penny.getYear(),
-            penny.getCommonName(),
-            penny.getFrontImage(),
-            penny.getBackImage(),
-            penny.getValueDescription(),
-            penny.hasRidgedEdge(),
-            new CuproNickel()
-        ) {};
-        System.out.println("Result:" + custom.manufacture());
     }
 
     private static void printMenu() {
